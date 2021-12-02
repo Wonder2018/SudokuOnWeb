@@ -1,0 +1,11 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'ansfnt';
+    src: url('tt0920m.eot');/* IE9 */
+    src: url('tt0920m.eot?#iefix') format('embedded-opentype'),
+    url('tt0920m.woff') format('woff'),
+    url('tt0920m.ttf')  format('truetype'),
+    url('tt0920m.svg') format('svg');
+    font-style: normal;
+    font-weight: normal;
+}

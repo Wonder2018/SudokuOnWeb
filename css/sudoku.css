@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    position: relative;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.control {
+    position: absolute;
+    width: 150px;
+    height: 320px;
+    top: 0;
+    bottom: 0;
+    right: 50px;
+    margin: auto;
+    background-color: pink;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.tools {
+    height: 100%;
+    list-style: none;
+}
+
+.tool {
+    position: relative;
+    height: 33%;
+}
+
+.tool-btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 8em;
+    height: 4em;
+    line-height: 4em;
+}
+
+.sudoku-grid {
+    position: absolute;
+    /* width: 630px;
+    height: 630px; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid #000;
+    border-radius: 5px;
+    /* border-collapse: collapse; */
+    border-collapse: separate;
+    border-spacing: 0;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.sudoku-row {
+    height: 70px;
+    transition: 0.3s;
+}
+
+.sudoku-col {
+    /* box-sizing: border-box; */
+    width: 70px;
+    border: 1px solid #000;
+    text-align: center;
+    /* border-right: 1px solid #000; */
+}
+
+.sudoku-tbody :nth-child(3n + 4) > td.sudoku-col {
+    border-top: 3px solid #000;
+}
+
+.sudoku-row :nth-child(3n + 4) {
+    border-left: 3px solid #000;
+}
+
+.row-hover,
+.col-hover,
+.cell-hover {
+    background-color: #a6d8f5;
+}
+
+
+
+.ans {
+    font-family: "ansfnt";
+    color: #0061c5;
+}
+
+.cell-active {
+    background-color: orange;
+}
+
+.pazzle-number {
+    background-color: #c4c4c4;
+}
+
+.pazzle-number.cell-active{
+    outline: 1px solid orange;
+}

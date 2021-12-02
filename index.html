@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sudoku</title>
+        <link rel="stylesheet" href="font/font.css" />
+        <link rel="stylesheet" href="css/sudoku.css" />
+    </head>
+
+    <body>
+        <div class="control">
+            <ul class="tools">
+                <li class="tool">
+                    <button class="tool-btn" type="button" onclick="clr()">清空表格</button>
+                </li>
+                <li class="tool">
+                    <button class="tool-btn" type="button" onclick="create(this)">出题模式</button>
+                </li>
+                <li class="tool">
+                    <button class="tool-btn" type="button" onclick="autoWork()">自动求解</button>
+                </li>
+            </ul>
+        </div>
+        <table class="sudoku-grid">
+            <tbody class="sudoku-tbody" onmouseout="msout()">
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+                <tr class="sudoku-row">
+                    <td class="sudoku-col" onmouseover="msover(this,0)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,1)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,2)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,3)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,4)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,5)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,6)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,7)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                    <td class="sudoku-col" onmouseover="msover(this,8)" onclick="msactive(this)" oncontextmenu="mscancel()"></td>
+                </tr>
+            </tbody>
+        </table>
+        <script src="js/sudoku.js"></script>
+        <script src="js/Sudoku.app.js"></script>
+    </body>
+</html>
+
+<!--
+    tr.sudoku-row*9>td.sudoku-col[onmouseover="msover(this,$@0)" onclick="msactive(this)" oncontextmenu="mscancel()"]*9{$}
+-->
