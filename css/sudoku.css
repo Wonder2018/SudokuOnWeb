@@ -106,10 +106,10 @@ body {
     background-color: orange;
 }
 
-.pazzle-number {
+.puzzle-number {
     background-color: #c4c4c4;
 }
 
-.pazzle-number.cell-active{
+.puzzle-number.cell-active{
     outline: 1px solid orange;
 }

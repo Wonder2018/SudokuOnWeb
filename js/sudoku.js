@@ -2,7 +2,7 @@ let cells = Array.from(document.querySelectorAll("td.sudoku-col"));
 let rows = Array.from(document.querySelectorAll("tr.sudoku-row"));
 let activeCell;
 let createMode = false;
-let pazzle = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+let puzzle = "000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
 document.onkeydown = function (event) {
     if (!activeCell) {
@@ -130,21 +130,21 @@ function readValue() {
     return rst;
 }
 
-function printPazzle(value) {
+function printpuzzle(value) {
     let ind = 0;
     createMode = true;
     cells.forEach((cell) => {
         setNum(cell, value.charAt(ind));
         ind++;
     });
-    pazzle = value;
+    puzzle = value;
     createMode = false;
 }
 
 function printAns(ans) {
     let ind = 0;
     cells.forEach((cell) => {
-        if (pazzle.charAt(ind) == 0) {
+        if (puzzle.charAt(ind) == 0) {
             setNum(cell, ans.charAt(ind));
         }
         ind++;
@@ -155,7 +155,7 @@ function clr() {
     cells.forEach((cell) => {
         if (createMode) {
             cell.classList.remove("ans");
-            cell.classList.remove("pazzle-number");
+            cell.classList.remove("puzzle-number");
             cell.innerHTML = "";
         } else if (cell.classList.contains("ans")) {
             cell.innerHTML = "";
@@ -166,7 +166,7 @@ function clr() {
 function create(btn) {
     if (createMode) {
         btn.innerHTML = "出题模式";
-        pazzle = readValue();
+        puzzle = readValue();
         cells.forEach((cell) => {
             if (cell.innerHTML == "") {
                 cell.classList.add("ans");
@@ -179,7 +179,7 @@ function create(btn) {
 }
 
 function autoWork() {
-    let ans = new Sudoku(pazzle);
+    let ans = new Sudoku(puzzle);
     ans.execute();
     let ansStr = "";
     for (const line of ans.matrix) {
@@ -213,11 +213,11 @@ function setNum(cell, num) {
 function inputNum(cell, num) {
     if (createMode) {
         cell.classList.remove("ans");
-        cell.classList.add("pazzle-number");
+        cell.classList.add("puzzle-number");
         cell.innerHTML = num;
     } else {
         ind = cells.indexOf(cell);
-        if (pazzle.charAt(ind) == 0) {
+        if (puzzle.charAt(ind) == 0) {
             cell.classList.add("ans");
             cell.innerHTML = num;
         }
@@ -233,12 +233,12 @@ function inputNum(cell, num) {
 function deleteNum(cell) {
     if (createMode) {
         cell.classList.remove("ans");
-        cell.classList.remove("pazzle-number");
+        cell.classList.remove("puzzle-number");
         cell.innerHTML = "";
     } else {
         ind = cells.indexOf(cell);
-        if (pazzle.charAt(ind) == 0) {
-            cell.classList.remove("pazzle-number");
+        if (puzzle.charAt(ind) == 0) {
+            cell.classList.remove("puzzle-number");
             cell.innerHTML = "";
         }
     }
