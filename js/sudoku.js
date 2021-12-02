@@ -145,7 +145,7 @@ function printAns(ans) {
     let ind = 0;
     cells.forEach((cell) => {
         if (pazzle.charAt(ind) == 0) {
-            setNum(cell,ans.charAt(ind))
+            setNum(cell, ans.charAt(ind));
         }
         ind++;
     });
@@ -155,6 +155,7 @@ function clr() {
     cells.forEach((cell) => {
         if (createMode) {
             cell.classList.remove("ans");
+            cell.classList.remove("pazzle-number");
             cell.innerHTML = "";
         } else if (cell.classList.contains("ans")) {
             cell.innerHTML = "";
@@ -196,7 +197,7 @@ function autoWork() {
  * @param {Number} num
  */
 function setNum(cell, num) {
-    if (cell && num == "") {
+    if (cell && (num == "" || num == 0)) {
         deleteNum(cell);
     } else if (cell) {
         inputNum(cell, num);
@@ -214,9 +215,9 @@ function inputNum(cell, num) {
         cell.classList.remove("ans");
         cell.classList.add("pazzle-number");
         cell.innerHTML = num;
-    }else{
+    } else {
         ind = cells.indexOf(cell);
-        if(pazzle.charAt(ind)==0){
+        if (pazzle.charAt(ind) == 0) {
             cell.classList.add("ans");
             cell.innerHTML = num;
         }
@@ -230,14 +231,14 @@ function inputNum(cell, num) {
  * @param {Number} num
  */
 function deleteNum(cell) {
-    if(createMode){
+    if (createMode) {
         cell.classList.remove("ans");
-        cell.classList.remove("pazzle-number")
+        cell.classList.remove("pazzle-number");
         cell.innerHTML = "";
-    }else{
+    } else {
         ind = cells.indexOf(cell);
-        if(pazzle.charAt(ind)==0){
-            cell.classList.remove("pazzle-number")
+        if (pazzle.charAt(ind) == 0) {
+            cell.classList.remove("pazzle-number");
             cell.innerHTML = "";
         }
     }
